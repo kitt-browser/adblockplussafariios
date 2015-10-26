@@ -29,9 +29,6 @@ static NSString *AdblockPlusLastActivity = @"AdblockPlusLastActivity";
 static NSString *AdblockPlusPerformingActivityTest = @"AdblockPlusPerformingActivityTest";
 
 @interface AdblockPlus ()
-
-@property (nonatomic, strong) NSString *bundleName;
-
 @end
 
 @implementation AdblockPlus
@@ -147,15 +144,15 @@ static NSString *AdblockPlusPerformingActivityTest = @"AdblockPlusPerformingActi
   return [NSString stringWithFormat:@"group.%@.%@", _bundleName, @"AdblockPlusSafari"];
 }
 
-- (NSString *)backgroundSessionConfigurationIdentifier
-{
-  return [NSString stringWithFormat:@"%@.AdblockPlusSafari.BackgroundSession", _bundleName];
-}
-
 - (void)synchronize
 {
   [self.adblockPlusDetails synchronize];
+  [self willChangeValueForKey:@"lastActivity"];
   _lastActivity = [self.adblockPlusDetails objectForKey:AdblockPlusLastActivity];
+  [self didChangeValueForKey:@"lastActivity"];
+  [self willChangeValueForKey:@"whitelistedWebsites"];
+  _whitelistedWebsites = [_adblockPlusDetails objectForKey:AdblockPlusWhitelistedWebsites];
+  [self didChangeValueForKey:@"whitelistedWebsites"];
 }
 
 @end

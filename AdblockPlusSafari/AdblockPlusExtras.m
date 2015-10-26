@@ -289,6 +289,8 @@ static NSString *AdblockPlusNeedsDisplayErrorDialog = @"AdblockPlusNeedsDisplayE
 
 - (void)onApplicationWillEnterForegroundNotification:(NSNotification *)notification
 {
+  [self synchronize];
+
   if (self.reloading) {
     return;
   }
@@ -309,6 +311,11 @@ static NSString *AdblockPlusNeedsDisplayErrorDialog = @"AdblockPlusNeedsDisplayE
 {
   [self synchronize];
   self.activated = !!self.lastActivity && (!lastActivity || [self.lastActivity compare:lastActivity] == NSOrderedDescending);
+}
+
+- (NSString *)backgroundSessionConfigurationIdentifier
+{
+  return [NSString stringWithFormat:@"%@.AdblockPlusSafari.BackgroundSession", self.bundleName];
 }
 
 @end

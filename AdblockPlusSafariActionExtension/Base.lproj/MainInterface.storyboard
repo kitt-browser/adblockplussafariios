@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ObA-dk-sSI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SourceSansPro-Light.otf">
+            <string>SourceSansPro-Light</string>
+        </mutableArray>
+        <mutableArray key="SourceSansPro-Regular.otf">
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
+        <mutableArray key="SourceSansPro-Semibold.otf">
+            <string>SourceSansPro-Semibold</string>
+            <string>SourceSansPro-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Action View Controller-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController title="Image" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ObA-dk-sSI" userLabel="Action View Controller" customClass="ActionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l16-MI-1gc">
+                                <rect key="frame" x="13" y="167" width="296" height="234"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adblock*Plus*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ET4-A5-VmU">
+                                        <rect key="frame" x="79" y="18" width="138" height="31"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
+                                        <color key="textColor" red="0.63137254901960782" green="0.63137254901960782" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cnn.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-PX-eAb">
+                                        <rect key="frame" x="20" y="68" width="256" height="26"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is going to be added to your Adblock Plus whitelist." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWI-PN-vWI">
+                                        <rect key="frame" x="15" y="96" width="266" height="16"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jp-c7-8Y1">
+                                        <rect key="frame" x="15" y="122" width="266" height="43"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="This means, that no content will be blocked on this domain. It can take a few seconds until this setting takes effect.">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="12" name="HelveticaNeue-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrW-7o-Vkz">
+                                        <rect key="frame" x="0.0" y="186" width="147" height="48"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="onEditButtonTouched:" destination="ObA-dk-sSI" eventType="touchUpInside" id="lgb-xL-QPz"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-SN-MBP">
+                                        <rect key="frame" x="0.0" y="185" width="296" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="6Ff-dr-hXR"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fO-ci-KUF">
+                                        <rect key="frame" x="147" y="186" width="1" height="48"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="0.5" id="PMy-YV-ZXb"/>
+                                            <constraint firstAttribute="height" constant="48" id="edY-9A-lGs"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dotted separator" translatesAutoresizingMaskIntoConstraints="NO" id="amn-hT-8JA">
+                                        <rect key="frame" x="87" y="57" width="121" height="1"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yJ-W4-sZl">
+                                        <rect key="frame" x="148" y="186" width="148" height="48"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="16"/>
+                                        <state key="normal" title="Confirm"/>
+                                        <connections>
+                                            <action selector="onConfirmButtonTouched:" destination="ObA-dk-sSI" eventType="touchUpInside" id="yxZ-7i-eGd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4fO-ci-KUF" firstAttribute="leading" secondItem="yrW-7o-Vkz" secondAttribute="trailing" id="2aT-EP-A7J"/>
+                                    <constraint firstItem="LWI-PN-vWI" firstAttribute="centerY" secondItem="mS8-PX-eAb" secondAttribute="centerY" constant="23" id="7uH-zT-jSx"/>
+                                    <constraint firstItem="LWI-PN-vWI" firstAttribute="leading" secondItem="l16-MI-1gc" secondAttribute="leading" constant="15" id="Eys-LH-2w9"/>
+                                    <constraint firstItem="hqp-SN-MBP" firstAttribute="top" secondItem="3jp-c7-8Y1" secondAttribute="bottom" constant="21" id="Fpu-xM-w8p"/>
+                                    <constraint firstAttribute="trailing" secondItem="hqp-SN-MBP" secondAttribute="trailing" id="GcY-bG-FeF"/>
+                                    <constraint firstItem="4fO-ci-KUF" firstAttribute="centerX" secondItem="l16-MI-1gc" secondAttribute="centerX" id="GxZ-dR-bUr"/>
+                                    <constraint firstItem="yrW-7o-Vkz" firstAttribute="top" secondItem="hqp-SN-MBP" secondAttribute="bottom" id="NLf-MZ-cEh"/>
+                                    <constraint firstItem="amn-hT-8JA" firstAttribute="centerX" secondItem="l16-MI-1gc" secondAttribute="centerX" id="PX4-xl-WCo"/>
+                                    <constraint firstAttribute="bottom" secondItem="yrW-7o-Vkz" secondAttribute="bottom" id="S2D-ZI-Xua"/>
+                                    <constraint firstItem="amn-hT-8JA" firstAttribute="top" secondItem="ET4-A5-VmU" secondAttribute="centerY" constant="24" id="US1-y1-9lZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="1yJ-W4-sZl" secondAttribute="trailing" id="VAy-fF-vWY"/>
+                                    <constraint firstItem="3jp-c7-8Y1" firstAttribute="top" secondItem="LWI-PN-vWI" secondAttribute="bottom" constant="10" id="VqH-kK-Cwk"/>
+                                    <constraint firstItem="3jp-c7-8Y1" firstAttribute="leading" secondItem="l16-MI-1gc" secondAttribute="leading" constant="15" id="YGq-fH-wxh"/>
+                                    <constraint firstItem="1yJ-W4-sZl" firstAttribute="top" secondItem="hqp-SN-MBP" secondAttribute="bottom" id="Ydi-Yf-Qse"/>
+                                    <constraint firstItem="mS8-PX-eAb" firstAttribute="centerY" secondItem="amn-hT-8JA" secondAttribute="bottom" constant="23" id="adG-16-tGi"/>
+                                    <constraint firstItem="yrW-7o-Vkz" firstAttribute="leading" secondItem="l16-MI-1gc" secondAttribute="leading" id="de5-nZ-uRg"/>
+                                    <constraint firstAttribute="trailing" secondItem="mS8-PX-eAb" secondAttribute="trailing" constant="20" id="eoT-9I-dT9"/>
+                                    <constraint firstItem="4fO-ci-KUF" firstAttribute="top" secondItem="hqp-SN-MBP" secondAttribute="bottom" id="l8E-Hw-dHe"/>
+                                    <constraint firstItem="ET4-A5-VmU" firstAttribute="centerY" secondItem="l16-MI-1gc" secondAttribute="top" constant="33" id="nDH-4L-JQg"/>
+                                    <constraint firstItem="ET4-A5-VmU" firstAttribute="centerX" secondItem="l16-MI-1gc" secondAttribute="centerX" id="nKQ-gh-V8w"/>
+                                    <constraint firstAttribute="bottom" secondItem="4fO-ci-KUF" secondAttribute="bottom" id="npc-Ms-nME"/>
+                                    <constraint firstAttribute="bottom" secondItem="1yJ-W4-sZl" secondAttribute="bottom" id="oKF-OZ-91G"/>
+                                    <constraint firstItem="hqp-SN-MBP" firstAttribute="leading" secondItem="l16-MI-1gc" secondAttribute="leading" id="rIQ-NB-xCh"/>
+                                    <constraint firstAttribute="trailing" secondItem="3jp-c7-8Y1" secondAttribute="trailing" constant="15" id="sn3-NE-e5j"/>
+                                    <constraint firstItem="1yJ-W4-sZl" firstAttribute="leading" secondItem="4fO-ci-KUF" secondAttribute="trailing" id="uwk-e7-Fll"/>
+                                    <constraint firstItem="mS8-PX-eAb" firstAttribute="leading" secondItem="l16-MI-1gc" secondAttribute="leading" constant="20" id="y9p-mn-Hv9"/>
+                                    <constraint firstAttribute="trailing" secondItem="LWI-PN-vWI" secondAttribute="trailing" constant="15" id="zv1-ss-ADc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="l16-MI-1gc" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="4VM-pe-utF"/>
+                            <constraint firstItem="l16-MI-1gc" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="SmY-0o-hrh"/>
+                            <constraint firstItem="l16-MI-1gc" firstAttribute="width" relation="lessThanOrEqual" secondItem="zMn-AG-sqS" secondAttribute="width" constant="-12" id="dFk-FV-pqX"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="adblockPlusLabel" destination="ET4-A5-VmU" id="XCt-wr-Bqr"/>
+                        <outlet property="descriptionLabel" destination="3jp-c7-8Y1" id="l0d-Rz-xPv"/>
+                        <outlet property="whitelistedWebsiteLabel" destination="mS8-PX-eAb" id="x06-va-hKe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103.46666666666667" y="-164.72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dotted separator" width="121" height="1"/>
+    </resources>
+</document>

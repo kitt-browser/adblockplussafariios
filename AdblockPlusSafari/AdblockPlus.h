@@ -26,13 +26,13 @@ typedef NS_ENUM(NSUInteger, AdblockPlusErrorCode) {
 
 @interface AdblockPlus : NSObject
 
+@property (nonatomic, strong, readonly) NSString *__nonnull bundleName;
+
 @property (nonatomic, strong, readonly) NSUserDefaults *__nonnull adblockPlusDetails;
 
 - (NSString *__nonnull)group;
 
 - (NSString *__nonnull)contentBlockerIdentifier;
-
-- (NSString *__nonnull)backgroundSessionConfigurationIdentifier;
 
 @property (nonatomic) BOOL enabled;
 

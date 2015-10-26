@@ -19,13 +19,14 @@
 
 #import "Appearence.h"
 #import "RootController.h"
+#import "WhitelistedWebsitesController.h"
 
 // Update filter list every 5 days
 const NSTimeInterval FilterListsUpdatePeriod = 3600*24*5;
 // Wake up application every hour (just hint for iOS)
 const NSTimeInterval BackgroundFetchInterval = 3600;
 
-@interface AppDelegate ()
+@interface AppDelegate () <NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) AdblockPlusExtras *adblockPlus;
 @property (nonatomic, strong) NSMutableArray<NSDictionary *> *backgroundFetches;
@@ -39,6 +40,21 @@ const NSTimeInterval BackgroundFetchInterval = 3600;
 - (void)dealloc
 {
   self.adblockPlus = nil;
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
+{
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.adblockPlus reloadContentBlocker];
+
+#ifdef DEBUG
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    notification.repeatInterval = 0;
+    notification.alertBody = @"Content blocker reloading has started";
+    notification.fireDate = nil;
+    [[UIApplication sharedApplication] setScheduledLocalNotifications:@[notification]];
+#endif
+  });
 }
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -57,6 +73,13 @@ const NSTimeInterval BackgroundFetchInterval = 3600;
   }
 
   [application setMinimumBackgroundFetchInterval:BackgroundFetchInterval];
+
+#ifdef DEBUG
+  UIUserNotificationType types = UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound;
+  UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes: types categories:nil];
+  [application registerUserNotificationSettings:settings];
+#endif
+
   return YES;
 }
 
@@ -94,6 +117,73 @@ const NSTimeInterval BackgroundFetchInterval = 3600;
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 }
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
+{
+  NSLog(@"identifier: %@", identifier);
+
+  if ([self.adblockPlus isBackgroundNotificationSessionConfigurationIdentifier:identifier]) {
+    // All finished task are processed by delegate
+    NSURLSession *session = [self.adblockPlus backgroundNotificationSessionWithIdentifier:identifier delegate:self];
+    [session invalidateAndCancel];
+  }
+
+  completionHandler();
+}
+
+#pragma mark - Open URL
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+  if (![url.host isEqualToString:@"x-callback-url"]) {
+    return NO;
+  }
+
+  if (![url.pathComponents containsObject:@"whitelist"]) {
+    return NO;
+  }
+
+  if (![self.window.rootViewController isKindOfClass:[RootController class]]) {
+    return NO;
+  }
+
+  NSString *website = nil;
+  NSArray *components = [url.query componentsSeparatedByString:@"&"];
+  for (NSString *component in components) {
+    if ([component hasPrefix:@"website="]) {
+      website = [component substringFromIndex:@"website=".length];
+      break;
+    }
+  }
+
+  if (website.length == 0) {
+    return NO;
+  }
+
+  RootController *rootController = (RootController *)self.window.rootViewController;
+
+  if ([rootController.topViewController isKindOfClass:[WhitelistedWebsitesController class]]) {
+    [((id)rootController.topViewController) setWhitelistedWebsite:website];
+  } else {
+    NSString *segue = @"ShowWhitelistedWebsitesWithoutAnimationSegue";
+
+    [UIView transitionWithView:rootController.view
+                      duration:0.4
+                       options:UIViewAnimationOptionTransitionCrossDissolve|UIViewAnimationOptionShowHideTransitionViews
+                    animations:^{
+                      [rootController popToRootViewControllerAnimated:NO];
+                      [rootController.topViewController performSegueWithIdentifier:segue sender:nil];
+                    }
+                    completion:^(BOOL finished) {
+                      if (finished) {
+                        [((id)rootController.topViewController) setWhitelistedWebsite:website];
+                      }
+                    }];
+  }
+
+  return YES;
+}
+
 
 #pragma mark - Background mode
 

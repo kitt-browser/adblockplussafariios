@@ -15,12 +15,9 @@
  * along with Adblock Plus.  If not, see <http://www.gnu.org/licenses/&gt.
  */
 
-#import "AdblockPlus.h"
+#import "AdblockPlusShared.h"
 
-@interface AdblockPlusExtras : AdblockPlus
-
-// Reloading content blocker
-@property (nonatomic) BOOL reloading;
+@interface AdblockPlusExtras : AdblockPlusShared
 
 // Updating filter lists
 @property (nonatomic, readonly) BOOL updating;
@@ -31,8 +28,6 @@
 - (void)setEnabled:(BOOL)enabled reload:(BOOL)reload;
 
 - (void)setAcceptableAdsEnabled:(BOOL)enabled reload:(BOOL)reload;
-
-- (void)reloadContentBlocker;
 
 - (void)updateFilterLists:(BOOL)userTriggered;
 
